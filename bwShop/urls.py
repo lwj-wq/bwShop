@@ -7,10 +7,11 @@ from rest_framework.schemas import get_schema_view
 from rest_framework import routers
 
 from bwShop.settings import MEDIA_ROOT
-from goods.views import GoodsListViewSet
+from goods.views import GoodsListViewSet,CategoryViewSet
 
 router = routers.DefaultRouter()
 router.register('goods',GoodsListViewSet)
+router.register('categorys',CategoryViewSet,basename='categorys')
 
 
 schema_view = get_schema_view(title='corejson')
