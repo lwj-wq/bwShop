@@ -46,7 +46,7 @@ class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     filter_class = GoodsFilter
 
     #设置搜索
-    search_fields = ("=name",'goods_brief','goods_desc')
+    search_fields = ("name",'goods_brief','goods_desc')
     # 排序
     ordering_fields = ('sold_num','shop_price')
 
