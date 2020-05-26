@@ -10,12 +10,13 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 from bwShop.settings import MEDIA_ROOT
 from goods.views import GoodsListViewSet,CategoryViewSet
-from users.views import SmsCodeViewset
+from users.views import SmsCodeViewset,UserViewset
 
 router = routers.DefaultRouter()
 router.register('goods',GoodsListViewSet)
 router.register('categorys',CategoryViewSet,basename='categorys')
 router.register('code',SmsCodeViewset,basename='code')
+router.register('users',UserViewset,basename="users")
 
 
 schema_view = get_schema_view(title='corejson')
@@ -28,7 +29,7 @@ urlpatterns = [
     # path('goods/',GoodsListViewSet.as_view(),name='goods-list'),
     path(r'',include(router.urls)),
     path('api-token-auth/',views.obtain_auth_token),
-    path('login', obtain_jwt_token ),
+    path('login/', obtain_jwt_token ),
     path('api-auth/',include('rest_framework.urls')),
     path('docs/',include_docs_urls(title='DRF文档')),
     path('schema/',schema_view)

@@ -52,14 +52,16 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     )
 }
-
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 import datetime
 #有效期限
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
-# APPEND_SLASH=False
+APPEND_SLASH=False
 # 手机号码正则表达式
 REGEX_MOBILE = "^1[358]\d{9}$|^147\d{8}$|^176\d{8}$"
 # 云片网 api_key
@@ -162,6 +164,3 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-AUTHENTICATION_BACKENDS = (
-    'users.views.CustomBackend',
-)
