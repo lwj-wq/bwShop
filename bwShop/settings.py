@@ -113,8 +113,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bw_shop',
         'USER':'root',
-        'PASSWORD':'12345678',
-        'HOST':'127.0.0.1',
+        'PASSWORD':'123456',
+        'HOST':'39.105.27.14',
         'OPTIONS':{
             'init_command':'SET default_storage_engine=INNODB;'
         }
@@ -163,4 +163,3 @@ STATIC_URL = '/static/'
 # 上传图片
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-
