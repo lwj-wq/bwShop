@@ -42,5 +42,6 @@ urlpatterns = [
     path('api-auth/',include('rest_framework.urls')),
     path('docs/',include_docs_urls(title='生鲜项目的文档')),
     path('schema/',schema_view),
-    path('alipay/return/',AlipayView.as_view())
+    path('alipay/return/',AlipayView.as_view()),
+    path('',include('social_django.urls',namespace='social'))
 ]
