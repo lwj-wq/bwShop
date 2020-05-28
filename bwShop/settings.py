@@ -15,7 +15,7 @@ SECRET_KEY = '**^_=h9=12xjx$9-n8k_r1_=_k@fe@dtg*1jukcji7ecq8@3@c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -113,8 +113,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bw_shop',
         'USER':'root',
-        'PASSWORD':'123456',
-        'HOST':'39.105.27.14',
+        'PASSWORD':'12345678',
+        'HOST':'127.0.0.1',
         'OPTIONS':{
             'init_command':'SET default_storage_engine=INNODB;'
         }
@@ -163,3 +163,7 @@ STATIC_URL = '/static/'
 # 上传图片
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+# 支付宝相关的key
+private_key_path = os.path.join(BASE_DIR, 'apps/trade/keys/private_2048.txt')
+ali_pub_key_path = os.path.join(BASE_DIR, 'apps/trade/keys/alipay_key_2048.txt')
