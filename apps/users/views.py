@@ -35,11 +35,6 @@ class CustomBackend(ModelBackend):
             if user.check_password(password):
                 return user
         except Exception as e:
-                # 异常信息UserProfile matching query does not exist
-            raise serializers.ValidationError({'username_error_field': '账户输入错误'})
-            return None
-        else:
-            raise serializers.ValidationError({'password_error_field': '密码输入错误'})
             return None
 
 class SmsCodeViewset(CreateModelMixin,viewsets.GenericViewSet):

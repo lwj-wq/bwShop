@@ -1,4 +1,6 @@
-from django.urls import path,include
+from django.conf.urls import url
+from django.urls import path, include
+from django.views.generic import TemplateView
 from django.views.static import serve
 
 import xadmin
@@ -36,12 +38,16 @@ urlpatterns = [
     # 文件上传路径
     path('media/<path:path>',serve,{'document_root':MEDIA_ROOT}),
     # path('goods/',GoodsListViewSet.as_view(),name='goods-list'),
-    path(r'',include(router.urls)),
+    # 商品列表页
+    path('', include(router.urls)),
     path('api-token-auth/',views.obtain_auth_token),
+    # jwt认证登录
     path('login/', obtain_jwt_token ),
     path('api-auth/',include('rest_framework.urls')),
     path('docs/',include_docs_urls(title='生鲜项目的文档')),
     path('schema/',schema_view),
+    # 首页
+    path('index/', TemplateView.as_view(template_name='index.html'),name='index'),
     path('alipay/return/',AlipayView.as_view()),
     path('',include('social_django.urls',namespace='social'))
 ]

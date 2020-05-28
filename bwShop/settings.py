@@ -17,7 +17,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -102,7 +101,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 第三方登录
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect'
             ],
@@ -167,7 +165,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 # 上传图片
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -180,3 +180,4 @@ ali_pub_key_path = os.path.join(BASE_DIR, 'apps/trade/keys/alipay_key_2048.txt')
 SOCIAL_AUTH_WEIBO_KEY = '2893299669'
 SOCIAL_AUTH_WEIBO_SECRET = '1a9903f1e7dcb3d8067f27ac6748877c'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/index/'
+
